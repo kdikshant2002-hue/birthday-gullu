@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Gullu ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,10 +19,11 @@
 body{
   overflow:hidden;
   background:black;
+  height:100vh;
 }
 
 .slider{
-  width:100vw;
+  width:100%;
   height:100vh;
   position:relative;
 }
@@ -31,17 +32,17 @@ body{
   position:absolute;
   width:100%;
   height:100%;
-  top:0;
-  left:0;
+  inset:0;
   opacity:0;
-  transform:scale(1.15);
-  transition:1s ease;
+  transition:1.2s ease;
+  overflow:hidden;
+  transform:scale(1.2);
 }
 
 .slide.active{
   opacity:1;
-  transform:scale(1);
   z-index:2;
+  transform:scale(1);
 }
 
 .slide img{
@@ -49,16 +50,27 @@ body{
   height:100%;
   object-fit:cover;
   position:absolute;
+  animation:zoom 12s linear infinite;
   filter:brightness(45%);
+}
+
+@keyframes zoom{
+  from{
+    transform:scale(1);
+  }
+  to{
+    transform:scale(1.15);
+  }
 }
 
 .overlay{
   position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(to top,
-  rgba(0,0,0,0.9),
-  rgba(0,0,0,0.2));
+  inset:0;
+  background:
+  linear-gradient(to top,
+  rgba(0,0,0,.95),
+  rgba(0,0,0,.3),
+  rgba(0,0,0,.6));
   z-index:1;
 }
 
@@ -66,78 +78,151 @@ body{
   position:absolute;
   top:18px;
   left:18px;
-  z-index:100;
+  z-index:50;
   color:#e50914;
-  font-size:28px;
-  font-weight:700;
+  font-size:32px;
+  font-weight:800;
   letter-spacing:2px;
 }
 
 .counter{
   position:absolute;
-  top:22px;
+  top:25px;
   right:20px;
+  z-index:50;
   color:white;
-  z-index:100;
   font-size:14px;
   opacity:.8;
 }
 
+.film{
+  position:absolute;
+  inset:0;
+  background:url('https://i.imgur.com/8Krm4bS.png');
+  opacity:.08;
+  z-index:3;
+  pointer-events:none;
+}
+
 .content{
   position:absolute;
-  z-index:5;
-  bottom:110px;
-  left:22px;
-  right:22px;
+  z-index:10;
+  bottom:120px;
+  left:24px;
+  right:24px;
   color:white;
-  animation:fadeUp 1s ease;
+  animation:fadeUp 1.2s ease;
 }
 
 .tag{
-  color:#ff3b5c;
+  color:#ff4d6d;
   font-size:11px;
-  letter-spacing:3px;
-  margin-bottom:10px;
+  letter-spacing:4px;
+  margin-bottom:12px;
+  text-transform:uppercase;
 }
 
 h1{
-  font-size:42px;
+  font-size:44px;
   line-height:1.1;
   margin-bottom:14px;
-  text-shadow:0 0 20px rgba(255,255,255,.3);
+  text-shadow:0 0 25px rgba(255,255,255,.35);
 }
 
 p{
-  color:#e6e6e6;
   font-size:15px;
-  line-height:1.8;
+  line-height:1.9;
+  color:#ececec;
+  backdrop-filter:blur(10px);
 }
 
-.next-btn{
+.next{
   position:absolute;
   bottom:35px;
   left:50%;
   transform:translateX(-50%);
   z-index:100;
+  border:none;
   background:#e50914;
   color:white;
-  border:none;
-  padding:15px 28px;
-  border-radius:40px;
+  padding:16px 34px;
+  border-radius:50px;
   font-size:15px;
   font-weight:600;
   letter-spacing:.5px;
-  box-shadow:0 10px 30px rgba(229,9,20,.5);
+  box-shadow:0 10px 30px rgba(229,9,20,.55);
 }
 
-.next-btn:active{
-  transform:translateX(-50%) scale(.95);
+.next:active{
+  transform:translateX(-50%) scale(.94);
+}
+
+.music{
+  position:absolute;
+  top:65px;
+  right:20px;
+  z-index:50;
+  color:white;
+  font-size:12px;
+  opacity:.7;
+}
+
+.intro{
+  position:absolute;
+  inset:0;
+  background:black;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  transition:1.5s ease;
+}
+
+.intro.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.intro h1{
+  color:#e50914;
+  font-size:42px;
+  letter-spacing:3px;
+}
+
+.intro p{
+  margin-top:12px;
+  color:#bbb;
+  font-size:14px;
+}
+
+.tap{
+  margin-top:35px;
+  color:white;
+  border:1px solid rgba(255,255,255,.2);
+  padding:14px 28px;
+  border-radius:40px;
+  font-size:14px;
+  backdrop-filter:blur(10px);
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.05);
+  }
+  100%{
+    transform:scale(1);
+  }
 }
 
 @keyframes fadeUp{
   from{
     opacity:0;
-    transform:translateY(30px);
+    transform:translateY(35px);
   }
   to{
     opacity:1;
@@ -155,14 +240,14 @@ p{
   line-height:2;
 }
 
-.music-wave{
+.credits{
   position:absolute;
-  top:60px;
-  right:20px;
-  z-index:100;
-  color:white;
-  font-size:12px;
-  opacity:.8;
+  bottom:8px;
+  width:100%;
+  text-align:center;
+  color:rgba(255,255,255,.4);
+  font-size:10px;
+  z-index:50;
 }
 
 </style>
@@ -170,198 +255,230 @@ p{
 
 <body>
 
+<!-- INTRO -->
+<div class="intro" id="intro">
+  <h1>NETFLIX</h1>
+  <p>A Story About Someone Special ❤️</p>
+
+  <div class="tap">
+    Tap To Start
+  </div>
+</div>
+
 <div class="netflix">NETFLIX</div>
-<div class="counter" id="counter">1/9</div>
-<div class="music-wave">🎵 cinematic mode</div>
+<div class="counter" id="counter">1 / 9</div>
+<div class="music">🎵 cinematic mode</div>
 
 <div class="slider">
 
-  <!-- Slide 1 -->
-  <div class="slide active">
-    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 1 -->
+<div class="slide active">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">A SPECIAL STORY</div>
-      <h1>Happy Birthday Gullu ❤️</h1>
-      <p>
-        Some people become home without even trying… and for me, that's you.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">SPECIAL STORY</div>
+<h1>Happy Birthday Gullu ❤️</h1>
+<p>
+Some people become home without even trying…
+and for me, that person is you.
+</p>
+</div>
+</div>
 
-  <!-- Slide 2 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 2 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 02</div>
-      <h1>My Peace 🌙</h1>
-      <p>
-        Teri awaaz aur tera hona hi mere liye sukoon hai.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 02</div>
+<h1>My Peace 🌙</h1>
+<p>
+Teri awaaz aur tera hona hi mere liye sukoon hai.
+</p>
+</div>
+</div>
 
-  <!-- Slide 3 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 3 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 03</div>
-      <h1>Golden Memories ✨</h1>
-      <p>
-        Har memory tere saath cinematic lagti hai.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 03</div>
+<h1>Golden Memories ✨</h1>
+<p>
+Har memory tere saath cinematic lagti hai.
+</p>
+</div>
+</div>
 
-  <!-- Slide 4 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 4 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 04</div>
-      <h1>Safe Place 🤍</h1>
-      <p>
-        Tu woh insaan hai jiske saamne main real reh sakta hu.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 04</div>
+<h1>Safe Place 🤍</h1>
+<p>
+Tu woh insaan hai jiske saamne main real reh sakta hu.
+</p>
+</div>
+</div>
 
-  <!-- Slide 5 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 5 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 05</div>
-      <h1>Forever Bond 💫</h1>
-      <p>
-        Kuch connections life mein bas special hote hain.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 05</div>
+<h1>Forever Bond 💫</h1>
+<p>
+Kuch rishton ko explanation ki zarurat nahi hoti.
+</p>
+</div>
+</div>
 
-  <!-- Slide 6 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 6 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 06</div>
-      <h1>Her Smile 🌸</h1>
-      <p>
-        Teri smile literally mood change kar deti hai.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 06</div>
+<h1>Her Smile 🌸</h1>
+<p>
+Teri smile literally duniya ka best vibe hai.
+</p>
+</div>
+</div>
 
-  <!-- Slide 7 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 7 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 07</div>
-      <h1>Always There ❤️</h1>
-      <p>
-        Bas hamesha mere saath rehna.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 07</div>
+<h1>Always There ❤️</h1>
+<p>
+Bas hamesha mere saath rehna.
+</p>
+</div>
+</div>
 
-  <!-- Slide 8 -->
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 8 -->
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
-      <div class="tag">CHAPTER 08</div>
-      <h1>Cinematic Feel 🎬</h1>
-      <p>
-        Agar meri life movie hoti… toh best scene tu hoti.
-      </p>
-    </div>
-  </div>
+<div class="content">
+<div class="tag">CHAPTER 08</div>
+<h1>Cinematic Feel 🎬</h1>
+<p>
+Agar meri life movie hoti…
+toh uska best scene tu hoti.
+</p>
+</div>
+</div>
 
-  <!-- Slide 9 -->
-  <div class="slide final">
-    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200">
-    <div class="overlay"></div>
+<!-- 9 -->
+<div class="slide final">
+<img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200">
+<div class="overlay"></div>
+<div class="film"></div>
 
-    <div class="content">
+<div class="content">
 
-      <div class="tag">FINAL MESSAGE</div>
+<div class="tag">FINAL MESSAGE</div>
 
-      <h1>Happy Birthday Gullu ❤️</h1>
+<h1>Happy Birthday Gullu ❤️</h1>
 
-      <p>
-        Pata nahi tu mere liye itni special kaise ban gayi,
-        but honestly tu sirf meri best friend nahi hai…
-        tu mere dil ke sabse kareeb insaan hai.
+<p>
+Pata nahi tu mere liye itni special kaise ban gayi,
+but honestly tu sirf meri best friend nahi hai…
+tu mere dil ke sabse kareeb insaan hai.
 
-        Har situation mein tera saath,
-        teri baatein,
-        tera samjhana aur bas tera hona hi kaafi hota hai mere liye.
+Har situation mein tera saath,
+teri baatein,
+tera samjhana aur bas tera hona hi kaafi hota hai mere liye.
 
-        Bohot log aaye aur gaye life mein,
-        but tu hi ek aisi hai jisse main har baat bina soche share kar sakta hu.
-        <br><br>
+Bohot log aaye aur gaye life mein,
+but tu hi ek aisi hai jisse main har baat bina soche share kar sakta hu.
 
-        Bas hamesha aise hi rehna mere saath,
-        kyuki meri life ka sabse peaceful aur genuine part tu hi hai.
+<br><br>
 
-        Teri smile hamesha aise hi rahe aur tujhe life ki har khushi mile,
-        because honestly tu uski haqdar hai. ❤️✨
+Bas hamesha aise hi rehna mere saath,
+kyuki meri life ka sabse peaceful aur genuine part tu hi hai.
 
-        <br><br>
+Teri smile hamesha aise hi rahe aur tujhe life ki har khushi mile,
+because honestly tu uski haqdar hai. ❤️✨
 
-        Once again Happy Birthday meri Gullu 🎂
-      </p>
+<br><br>
 
-    </div>
-  </div>
+Once again Happy Birthday meri Gullu 🎂
+</p>
+
+</div>
+</div>
 
 </div>
 
-<button class="next-btn" onclick="nextSlide()">
-  Next Slide ➜
+<button class="next" onclick="nextSlide()">
+Next Slide ➜
 </button>
 
-<!-- AUDIO -->
-<audio id="music">
-  <source src="song.mp3" type="audio/mpeg">
+<div class="credits">
+Made with ❤️ for Gullu
+</div>
+
+<!-- MUSIC -->
+<audio id="bgmusic">
+<source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
+const intro = document.getElementById("intro");
 const slides = document.querySelectorAll(".slide");
 const counter = document.getElementById("counter");
-const music = document.getElementById("music");
+const music = document.getElementById("bgmusic");
 
 let current = 0;
 let started = false;
 
+intro.addEventListener("click", ()=>{
+
+intro.classList.add("hide");
+
+music.currentTime = 10;
+music.play();
+
+started = true;
+
+});
+
 function nextSlide(){
 
-  slides[current].classList.remove("active");
+slides[current].classList.remove("active");
 
-  current = (current + 1) % slides.length;
+current = (current + 1) % slides.length;
 
-  slides[current].classList.add("active");
+slides[current].classList.add("active");
 
-  counter.innerHTML = `${current + 1}/9`;
+counter.innerHTML = `${current + 1} / 9`;
 
-  // music start from 10 sec
-  if(!started){
-    music.currentTime = 10;
-    music.play();
-    started = true;
-  }
 }
 
 </script>
