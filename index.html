@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Gullu 💖</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
@@ -15,91 +17,13 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
+height:100vh;
 overflow:hidden;
-height:100vh;
-background:linear-gradient(135deg,#ff9ad5,#ffd6ec,#fff0f6);
+background:linear-gradient(135deg,#ff4fa1,#ff9ad5,#ffe6f4);
 }
 
-.slider{
-width:100%;
-height:100vh;
-position:relative;
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-opacity:0;
-transform:scale(0.9);
-transition:1s;
-}
-
-.active{
-opacity:1;
-transform:scale(1);
-z-index:2;
-}
-
-h1{
-font-size:3rem;
-color:white;
-margin-bottom:20px;
-text-shadow:2px 2px 10px rgba(0,0,0,0.3);
-}
-
-p{
-font-size:1.2rem;
-color:white;
-max-width:800px;
-line-height:1.8;
-background:rgba(255,255,255,0.15);
-padding:20px;
-border-radius:20px;
-backdrop-filter:blur(5px);
-}
-
-.emoji{
-font-size:4rem;
-margin-bottom:20px;
-animation:float 2s infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
-}
-
-.next-btn{
-position:absolute;
-bottom:30px;
-left:50%;
-transform:translateX(-50%);
-padding:14px 30px;
-border:none;
-border-radius:40px;
-background:#ff4fa1;
-color:white;
-font-size:1rem;
-cursor:pointer;
-z-index:10;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-transition:0.3s;
-}
-
-.next-btn:hover{
-transform:translateX(-50%) scale(1.1);
-background:#ff2d8b;
-}
-
-.hearts{
+/* Floating background hearts */
+.bg{
 position:absolute;
 width:100%;
 height:100%;
@@ -107,33 +31,161 @@ overflow:hidden;
 z-index:0;
 }
 
-.heart{
+.float{
 position:absolute;
-animation:fall linear infinite;
+font-size:25px;
+animation:floatUp linear infinite;
 opacity:0.8;
 }
 
-@keyframes fall{
-from{
-transform:translateY(-10vh);
-}
-to{
-transform:translateY(110vh);
-}
+@keyframes floatUp{
+0%{transform:translateY(110vh) scale(0.5);}
+100%{transform:translateY(-10vh) scale(1.2);}
 }
 
-@media(max-width:768px){
+/* Slider */
+.slider{
+position:relative;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:2;
+}
 
+/* Slide */
+.slide{
+position:absolute;
+width:90%;
+max-width:600px;
+padding:25px;
+border-radius:25px;
+text-align:center;
+opacity:0;
+transform:scale(0.8);
+transition:1s ease;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.active{
+opacity:1;
+transform:scale(1);
+}
+
+/* Text */
 h1{
+color:white;
 font-size:2rem;
+margin-bottom:15px;
+text-shadow:0 0 15px white;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px white;}
+to{text-shadow:0 0 25px #fff;}
 }
 
 p{
+color:white;
 font-size:1rem;
+line-height:1.7;
 }
 
+/* Emoji */
 .emoji{
 font-size:3rem;
+margin-bottom:10px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+/* Image */
+img{
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:20px;
+margin-top:15px;
+border:4px solid white;
+box-shadow:0 0 20px white;
+animation:zoom 3s infinite alternate;
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.05);}
+}
+
+/* Button */
+.next-btn{
+position:absolute;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+padding:14px 30px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff2d8b;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:0.3s;
+z-index:5;
+}
+
+.next-btn:hover{
+transform:translateX(-50%) scale(1.1);
+}
+
+/* Music button */
+.music-btn{
+position:absolute;
+top:15px;
+right:15px;
+padding:10px 18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff2d8b;
+font-weight:bold;
+z-index:5;
+}
+
+/* Hearts burst */
+.heart{
+position:absolute;
+font-size:20px;
+animation:burst 1s ease-out forwards;
+}
+
+@keyframes burst{
+0%{opacity:1; transform:scale(1);}
+100%{opacity:0; transform:translateY(-100px) scale(2);}
+}
+
+/* MOBILE FRIENDLY */
+@media(max-width:600px){
+
+h1{font-size:1.5rem;}
+p{font-size:0.9rem;}
+
+.slide{
+width:95%;
+padding:18px;
+}
+
+img{
+width:160px;
+height:160px;
 }
 
 }
@@ -143,158 +195,150 @@ font-size:3rem;
 
 <body>
 
-<!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
+<div class="bg"></div>
+
+<!-- MUSIC -->
+<audio id="song" loop>
 <source src="song.mp3" type="audio/mp3">
 </audio>
 
-<div class="hearts"></div>
+<button class="music-btn" onclick="playMusic()">🎵 Play</button>
 
 <div class="slider">
 
 <!-- Slide 1 -->
 <div class="slide active">
 <div class="emoji">🎂💖🧸</div>
-<h1>Happy Birthday Gullu 💕</h1>
-<p>
-Dear Divya 🌸<br><br>
-Today is your special day and I just want to remind you how important you are to me 💖
-</p>
+<h1>Happy Birthday Gullu</h1>
+<p>Divya 💕 today is your special day and you are my most precious person ✨</p>
 </div>
 
 <!-- Slide 2 -->
 <div class="slide">
-<div class="emoji">🌈✨🐻</div>
-<h1>My Favorite Person</h1>
-<p>
-Gullu, your smile can literally fix my worst days 😭💫
-</p>
+<div class="emoji">🌸✨💖</div>
+<h1>You Are Magic</h1>
+<p>Your smile makes everything better 💫</p>
 </div>
 
 <!-- Slide 3 -->
 <div class="slide">
-<div class="emoji">💌🎀🧸</div>
-<h1>Beautiful Memories</h1>
-<p>
-Every moment with you feels magical and unforgettable 📸💕
-</p>
+<div class="emoji">💌📸🎀</div>
+<h1>Memories</h1>
+<p>Every moment with you becomes unforgettable 💖</p>
 </div>
 
 <!-- Slide 4 -->
 <div class="slide">
 <div class="emoji">😂🍕💃</div>
-<h1>Crazy Together</h1>
-<p>
-From random laughs to emotional talks… life is just better with you 🥹💖
-</p>
+<h1>Crazy Vibes</h1>
+<p>Laughs, jokes, talks… everything is perfect with you 🤍</p>
 </div>
 
 <!-- Slide 5 -->
 <div class="slide">
-<div class="emoji">🌸🐻🎉</div>
-<h1>Your Smile ✨</h1>
-<p>
-Never stop smiling because your smile is honestly my favorite thing 💕
-</p>
+<div class="emoji">🌷🐻💖</div>
+<h1>Your Smile</h1>
+<p>Never stop smiling… it’s my favorite thing 🌸</p>
 </div>
 
 <!-- Slide 6 -->
 <div class="slide">
-<div class="emoji">💎✨🫶</div>
-<h1>Best Friend Forever</h1>
-<p>
-Thank you for always understanding me even when I say nothing 💖
-</p>
+<div class="emoji">💎🫶✨</div>
+<h1>Best Friend</h1>
+<p>You are my comfort zone 💕</p>
 </div>
 
 <!-- Slide 7 -->
 <div class="slide">
-<div class="emoji">🎈🎁🐻</div>
-<h1>Birthday Wishes 🌷</h1>
-<p>
-I wish you happiness, love, success and every cute thing in this world ✨
-</p>
+<div class="emoji">🎁🎉💖</div>
+<h1>Wishes</h1>
+<p>Happiness, success, love… everything for you ✨</p>
 </div>
 
 <!-- Slide 8 -->
 <div class="slide">
-<div class="emoji">🌙💫❤️</div>
-<h1>Always Together 🤞</h1>
-<p>
-No matter where life takes us, you’ll always be my Gullu 💕
-</p>
+<div class="emoji">🌙💫🤞</div>
+<h1>Forever</h1>
+<p>No matter what… always you and me 💖</p>
 </div>
 
 <!-- Slide 9 -->
 <div class="slide">
-<div class="emoji">👑🎂💖</div>
-<h1>I Love You Gullu 🧸</h1>
-<p>
-Happy Birthday Divya 💕<br><br>
-Keep shining princess ✨🥳
-</p>
-</div>
 
-<!-- ONLY NEXT BUTTON -->
-<button class="next-btn" onclick="nextSlide()">
-Next ➡
-</button>
+<div class="emoji">👑💖🎂</div>
+
+<h1>I Love You Gullu</h1>
+
+<p>Happy Birthday Divya 💕 Keep shining like a queen 👑✨</p>
+
+<img src="divya.jpg">
 
 </div>
+
+</div>
+
+<button class="next-btn" onclick="nextSlide()">Next ➡</button>
 
 <script>
 
 let slides=document.querySelectorAll(".slide");
 let index=0;
 
-function showSlide(i){
-slides.forEach(slide=>{
-slide.classList.remove("active");
-});
-
+function show(i){
+slides.forEach(s=>s.classList.remove("active"));
 slides[i].classList.add("active");
 }
 
 function nextSlide(){
 index=(index+1)%slides.length;
-showSlide(index);
+show(index);
+burstHearts();
 }
 
-/* Floating Emoji Effect */
+/* Hearts burst animation */
+function burstHearts(){
 
-const hearts=document.querySelector('.hearts');
+for(let i=0;i<10;i++){
+let h=document.createElement("div");
+h.classList.add("heart");
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+h.style.top="70%";
+document.body.appendChild(h);
 
-function createHeart(){
-
-const heart=document.createElement('div');
-
-heart.classList.add('heart');
-
-const emojis=['💖','✨','🧸','💕','🎀','🌸'];
-
-heart.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-
-heart.style.left=Math.random()*100+'vw';
-
-heart.style.fontSize=(Math.random()*30+20)+'px';
-
-heart.style.animationDuration=(Math.random()*5+5)+'s';
-
-hearts.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},10000);
+setTimeout(()=>h.remove(),1000);
+}
 
 }
 
-setInterval(createHeart,300);
+/* Floating background */
+const bg=document.querySelector(".bg");
 
-/* Auto Music Play Fix */
+function float(){
 
-window.addEventListener('click', () => {
-document.getElementById('bgMusic').play();
-}, { once:true });
+let e=document.createElement("div");
+e.classList.add("float");
+e.innerHTML=["💖","✨","🧸","🎀"][Math.floor(Math.random()*4)];
+e.style.left=Math.random()*100+"vw";
+e.style.animationDuration=(Math.random()*5+5)+"s";
+
+bg.appendChild(e);
+
+setTimeout(()=>e.remove(),8000);
+}
+
+setInterval(float,300);
+
+/* Music */
+function playMusic(){
+document.getElementById("song").play();
+}
+
+/* auto play attempt */
+window.onload=()=>{
+let a=document.getElementById("song");
+a.play().catch(()=>{});
+}
 
 </script>
 
