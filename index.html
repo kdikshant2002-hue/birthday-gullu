@@ -1,193 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Gullu 💖</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday Gullu ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
-overflow:hidden;
-background:linear-gradient(135deg,#ff4fa1,#ff9ad5,#ffe6f4);
+  overflow:hidden;
+  background:black;
 }
 
-/* Floating background hearts */
-.bg{
-position:absolute;
-width:100%;
-height:100%;
-overflow:hidden;
-z-index:0;
-}
-
-.float{
-position:absolute;
-font-size:25px;
-animation:floatUp linear infinite;
-opacity:0.8;
-}
-
-@keyframes floatUp{
-0%{transform:translateY(110vh) scale(0.5);}
-100%{transform:translateY(-10vh) scale(1.2);}
-}
-
-/* Slider */
 .slider{
-position:relative;
-width:100%;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:2;
+  width:100vw;
+  height:100vh;
+  position:relative;
 }
 
-/* Slide */
 .slide{
-position:absolute;
-width:90%;
-max-width:600px;
-padding:25px;
-border-radius:25px;
-text-align:center;
-opacity:0;
-transform:scale(0.8);
-transition:1s ease;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(15px);
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  transform:scale(1.15);
+  transition:1s ease;
 }
 
-.active{
-opacity:1;
-transform:scale(1);
+.slide.active{
+  opacity:1;
+  transform:scale(1);
+  z-index:2;
 }
 
-/* Text */
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  filter:brightness(45%);
+}
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to top,
+  rgba(0,0,0,0.9),
+  rgba(0,0,0,0.2));
+  z-index:1;
+}
+
+.netflix{
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:100;
+  color:#e50914;
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.counter{
+  position:absolute;
+  top:22px;
+  right:20px;
+  color:white;
+  z-index:100;
+  font-size:14px;
+  opacity:.8;
+}
+
+.content{
+  position:absolute;
+  z-index:5;
+  bottom:110px;
+  left:22px;
+  right:22px;
+  color:white;
+  animation:fadeUp 1s ease;
+}
+
+.tag{
+  color:#ff3b5c;
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
 h1{
-color:white;
-font-size:2rem;
-margin-bottom:15px;
-text-shadow:0 0 15px white;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 10px white;}
-to{text-shadow:0 0 25px #fff;}
+  font-size:42px;
+  line-height:1.1;
+  margin-bottom:14px;
+  text-shadow:0 0 20px rgba(255,255,255,.3);
 }
 
 p{
-color:white;
-font-size:1rem;
-line-height:1.7;
+  color:#e6e6e6;
+  font-size:15px;
+  line-height:1.8;
 }
 
-/* Emoji */
-.emoji{
-font-size:3rem;
-margin-bottom:10px;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-}
-
-/* Image */
-img{
-width:200px;
-height:200px;
-object-fit:cover;
-border-radius:20px;
-margin-top:15px;
-border:4px solid white;
-box-shadow:0 0 20px white;
-animation:zoom 3s infinite alternate;
-}
-
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.05);}
-}
-
-/* Button */
 .next-btn{
-position:absolute;
-bottom:25px;
-left:50%;
-transform:translateX(-50%);
-padding:14px 30px;
-border:none;
-border-radius:50px;
-background:white;
-color:#ff2d8b;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-transition:0.3s;
-z-index:5;
+  position:absolute;
+  bottom:35px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  background:#e50914;
+  color:white;
+  border:none;
+  padding:15px 28px;
+  border-radius:40px;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.5px;
+  box-shadow:0 10px 30px rgba(229,9,20,.5);
 }
 
-.next-btn:hover{
-transform:translateX(-50%) scale(1.1);
+.next-btn:active{
+  transform:translateX(-50%) scale(.95);
 }
 
-/* Music button */
-.music-btn{
-position:absolute;
-top:15px;
-right:15px;
-padding:10px 18px;
-border:none;
-border-radius:30px;
-background:white;
-color:#ff2d8b;
-font-weight:bold;
-z-index:5;
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-/* Hearts burst */
-.heart{
-position:absolute;
-font-size:20px;
-animation:burst 1s ease-out forwards;
+.final h1{
+  font-size:32px;
+  color:#ff4d6d;
 }
 
-@keyframes burst{
-0%{opacity:1; transform:scale(1);}
-100%{opacity:0; transform:translateY(-100px) scale(2);}
+.final p{
+  font-size:14px;
+  line-height:2;
 }
 
-/* MOBILE FRIENDLY */
-@media(max-width:600px){
-
-h1{font-size:1.5rem;}
-p{font-size:0.9rem;}
-
-.slide{
-width:95%;
-padding:18px;
-}
-
-img{
-width:160px;
-height:160px;
-}
-
+.music-wave{
+  position:absolute;
+  top:60px;
+  right:20px;
+  z-index:100;
+  color:white;
+  font-size:12px;
+  opacity:.8;
 }
 
 </style>
@@ -195,149 +170,198 @@ height:160px;
 
 <body>
 
-<div class="bg"></div>
-
-<!-- MUSIC -->
-<audio id="song" loop>
-<source src="song.mp3" type="audio/mp3">
-</audio>
-
-<button class="music-btn" onclick="playMusic()">🎵 Play</button>
+<div class="netflix">NETFLIX</div>
+<div class="counter" id="counter">1/9</div>
+<div class="music-wave">🎵 cinematic mode</div>
 
 <div class="slider">
 
-<!-- Slide 1 -->
-<div class="slide active">
-<div class="emoji">🎂💖🧸</div>
-<h1>Happy Birthday Gullu</h1>
-<p>Divya 💕 today is your special day and you are my most precious person ✨</p>
+  <!-- Slide 1 -->
+  <div class="slide active">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">A SPECIAL STORY</div>
+      <h1>Happy Birthday Gullu ❤️</h1>
+      <p>
+        Some people become home without even trying… and for me, that's you.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 02</div>
+      <h1>My Peace 🌙</h1>
+      <p>
+        Teri awaaz aur tera hona hi mere liye sukoon hai.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 03</div>
+      <h1>Golden Memories ✨</h1>
+      <p>
+        Har memory tere saath cinematic lagti hai.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 04</div>
+      <h1>Safe Place 🤍</h1>
+      <p>
+        Tu woh insaan hai jiske saamne main real reh sakta hu.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 05</div>
+      <h1>Forever Bond 💫</h1>
+      <p>
+        Kuch connections life mein bas special hote hain.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 06</div>
+      <h1>Her Smile 🌸</h1>
+      <p>
+        Teri smile literally mood change kar deti hai.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 07</div>
+      <h1>Always There ❤️</h1>
+      <p>
+        Bas hamesha mere saath rehna.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 8 -->
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">CHAPTER 08</div>
+      <h1>Cinematic Feel 🎬</h1>
+      <p>
+        Agar meri life movie hoti… toh best scene tu hoti.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 9 -->
+  <div class="slide final">
+    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200">
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <div class="tag">FINAL MESSAGE</div>
+
+      <h1>Happy Birthday Gullu ❤️</h1>
+
+      <p>
+        Pata nahi tu mere liye itni special kaise ban gayi,
+        but honestly tu sirf meri best friend nahi hai…
+        tu mere dil ke sabse kareeb insaan hai.
+
+        Har situation mein tera saath,
+        teri baatein,
+        tera samjhana aur bas tera hona hi kaafi hota hai mere liye.
+
+        Bohot log aaye aur gaye life mein,
+        but tu hi ek aisi hai jisse main har baat bina soche share kar sakta hu.
+        <br><br>
+
+        Bas hamesha aise hi rehna mere saath,
+        kyuki meri life ka sabse peaceful aur genuine part tu hi hai.
+
+        Teri smile hamesha aise hi rahe aur tujhe life ki har khushi mile,
+        because honestly tu uski haqdar hai. ❤️✨
+
+        <br><br>
+
+        Once again Happy Birthday meri Gullu 🎂
+      </p>
+
+    </div>
+  </div>
+
 </div>
 
-<!-- Slide 2 -->
-<div class="slide">
-<div class="emoji">🌸✨💖</div>
-<h1>You Are Magic</h1>
-<p>Your smile makes everything better 💫</p>
-</div>
+<button class="next-btn" onclick="nextSlide()">
+  Next Slide ➜
+</button>
 
-<!-- Slide 3 -->
-<div class="slide">
-<div class="emoji">💌📸🎀</div>
-<h1>Memories</h1>
-<p>Every moment with you becomes unforgettable 💖</p>
-</div>
-
-<!-- Slide 4 -->
-<div class="slide">
-<div class="emoji">😂🍕💃</div>
-<h1>Crazy Vibes</h1>
-<p>Laughs, jokes, talks… everything is perfect with you 🤍</p>
-</div>
-
-<!-- Slide 5 -->
-<div class="slide">
-<div class="emoji">🌷🐻💖</div>
-<h1>Your Smile</h1>
-<p>Never stop smiling… it’s my favorite thing 🌸</p>
-</div>
-
-<!-- Slide 6 -->
-<div class="slide">
-<div class="emoji">💎🫶✨</div>
-<h1>Best Friend</h1>
-<p>You are my comfort zone 💕</p>
-</div>
-
-<!-- Slide 7 -->
-<div class="slide">
-<div class="emoji">🎁🎉💖</div>
-<h1>Wishes</h1>
-<p>Happiness, success, love… everything for you ✨</p>
-</div>
-
-<!-- Slide 8 -->
-<div class="slide">
-<div class="emoji">🌙💫🤞</div>
-<h1>Forever</h1>
-<p>No matter what… always you and me 💖</p>
-</div>
-
-<!-- Slide 9 -->
-<div class="slide">
-
-<div class="emoji">👑💖🎂</div>
-
-<h1>I Love You Gullu</h1>
-
-<p>Happy Birthday Divya 💕 Keep shining like a queen 👑✨</p>
-
-<img src="divya.jpg">
-
-</div>
-
-</div>
-
-<button class="next-btn" onclick="nextSlide()">Next ➡</button>
+<!-- AUDIO -->
+<audio id="music">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
-let slides=document.querySelectorAll(".slide");
-let index=0;
+const slides = document.querySelectorAll(".slide");
+const counter = document.getElementById("counter");
+const music = document.getElementById("music");
 
-function show(i){
-slides.forEach(s=>s.classList.remove("active"));
-slides[i].classList.add("active");
-}
+let current = 0;
+let started = false;
 
 function nextSlide(){
-index=(index+1)%slides.length;
-show(index);
-burstHearts();
-}
 
-/* Hearts burst animation */
-function burstHearts(){
+  slides[current].classList.remove("active");
 
-for(let i=0;i<10;i++){
-let h=document.createElement("div");
-h.classList.add("heart");
-h.innerHTML="💖";
-h.style.left=Math.random()*100+"vw";
-h.style.top="70%";
-document.body.appendChild(h);
+  current = (current + 1) % slides.length;
 
-setTimeout(()=>h.remove(),1000);
-}
+  slides[current].classList.add("active");
 
-}
+  counter.innerHTML = `${current + 1}/9`;
 
-/* Floating background */
-const bg=document.querySelector(".bg");
-
-function float(){
-
-let e=document.createElement("div");
-e.classList.add("float");
-e.innerHTML=["💖","✨","🧸","🎀"][Math.floor(Math.random()*4)];
-e.style.left=Math.random()*100+"vw";
-e.style.animationDuration=(Math.random()*5+5)+"s";
-
-bg.appendChild(e);
-
-setTimeout(()=>e.remove(),8000);
-}
-
-setInterval(float,300);
-
-/* Music */
-function playMusic(){
-document.getElementById("song").play();
-}
-
-/* auto play attempt */
-window.onload=()=>{
-let a=document.getElementById("song");
-a.play().catch(()=>{});
+  // music start from 10 sec
+  if(!started){
+    music.currentTime = 10;
+    music.play();
+    started = true;
+  }
 }
 
 </script>
