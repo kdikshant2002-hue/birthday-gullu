@@ -1,171 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Gullu 💖</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    overflow:hidden;
-    background:linear-gradient(135deg,#ff9ad5,#ffd6ec,#fff0f6);
-    height:100vh;
+overflow:hidden;
+height:100vh;
+background:linear-gradient(135deg,#ff9ad5,#ffd6ec,#fff0f6);
 }
 
 .slider{
-    width:100%;
-    height:100vh;
-    position:relative;
+width:100%;
+height:100vh;
+position:relative;
 }
 
 .slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    opacity:0;
-    transform:scale(0.9);
-    transition:1s;
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+opacity:0;
+transform:scale(0.9);
+transition:1s;
 }
 
 .active{
-    opacity:1;
-    transform:scale(1);
-    z-index:2;
+opacity:1;
+transform:scale(1);
+z-index:2;
 }
 
 h1{
-    font-size:3rem;
-    color:white;
-    margin-bottom:20px;
-    text-shadow:2px 2px 10px rgba(0,0,0,0.3);
+font-size:3rem;
+color:white;
+margin-bottom:20px;
+text-shadow:2px 2px 10px rgba(0,0,0,0.3);
 }
 
 p{
-    font-size:1.2rem;
-    color:white;
-    max-width:800px;
-    line-height:1.8;
-    background:rgba(255,255,255,0.15);
-    padding:20px;
-    border-radius:20px;
-    backdrop-filter:blur(5px);
+font-size:1.2rem;
+color:white;
+max-width:800px;
+line-height:1.8;
+background:rgba(255,255,255,0.15);
+padding:20px;
+border-radius:20px;
+backdrop-filter:blur(5px);
 }
 
 .emoji{
-    font-size:4rem;
-    margin-bottom:20px;
-    animation:float 2s infinite;
+font-size:4rem;
+margin-bottom:20px;
+animation:float 2s infinite;
 }
 
 @keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
 }
 
-.buttons{
-    position:absolute;
-    bottom:30px;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    z-index:5;
+.next-btn{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+padding:14px 30px;
+border:none;
+border-radius:40px;
+background:#ff4fa1;
+color:white;
+font-size:1rem;
+cursor:pointer;
+z-index:10;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
 }
 
-button{
-    padding:14px 28px;
-    border:none;
-    border-radius:40px;
-    background:#ff4fa1;
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-button:hover{
-    transform:scale(1.1);
-    background:#ff2d8b;
-}
-
-.music-btn{
-    position:absolute;
-    top:20px;
-    right:20px;
-    z-index:10;
+.next-btn:hover{
+transform:translateX(-50%) scale(1.1);
+background:#ff2d8b;
 }
 
 .hearts{
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:0;
 }
 
 .heart{
-    position:absolute;
-    animation:fall linear infinite;
-    opacity:0.8;
+position:absolute;
+animation:fall linear infinite;
+opacity:0.8;
 }
 
 @keyframes fall{
-    from{
-        transform:translateY(-10vh);
-    }
-    to{
-        transform:translateY(110vh);
-    }
+from{
+transform:translateY(-10vh);
 }
-
-iframe{
-    display:none;
+to{
+transform:translateY(110vh);
+}
 }
 
 @media(max-width:768px){
 
 h1{
-    font-size:2rem;
+font-size:2rem;
 }
 
 p{
-    font-size:1rem;
+font-size:1rem;
 }
 
 .emoji{
-    font-size:3rem;
+font-size:3rem;
 }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
 <div class="hearts"></div>
-
-<!-- SONG -->
-<iframe id="music"
-src="https://www.youtube.com/embed/RTxfMOBBp7Y?start=12&autoplay=1&loop=1&playlist=RTxfMOBBp7Y"
-allow="autoplay">
-</iframe>
-
-<button class="music-btn" onclick="playMusic()">
-🎵 Play Gullu's Song
-</button>
 
 <div class="slider">
 
@@ -174,7 +157,7 @@ allow="autoplay">
 <div class="emoji">🎂💖🧸</div>
 <h1>Happy Birthday Gullu 💕</h1>
 <p>
-Dear Divya 🌸  
+Dear Divya 🌸<br><br>
 Today is your special day and I just want to remind you how important you are to me 💖
 </p>
 </div>
@@ -247,16 +230,15 @@ No matter where life takes us, you’ll always be my Gullu 💕
 <div class="emoji">👑🎂💖</div>
 <h1>I Love You Gullu 🧸</h1>
 <p>
-Happy Birthday Divya 💕  
+Happy Birthday Divya 💕<br><br>
 Keep shining princess ✨🥳
 </p>
 </div>
 
-<!-- Buttons -->
-<div class="buttons">
-<button onclick="prevSlide()">⬅ Prev</button>
-<button onclick="nextSlide()">Next ➡</button>
-</div>
+<!-- ONLY NEXT BUTTON -->
+<button class="next-btn" onclick="nextSlide()">
+Next ➡
+</button>
 
 </div>
 
@@ -269,6 +251,7 @@ function showSlide(i){
 slides.forEach(slide=>{
 slide.classList.remove("active");
 });
+
 slides[i].classList.add("active");
 }
 
@@ -277,31 +260,24 @@ index=(index+1)%slides.length;
 showSlide(index);
 }
 
-function prevSlide(){
-index=(index-1+slides.length)%slides.length;
-showSlide(index);
-}
+/* Floating Emoji Effect */
 
-// Music Button
-function playMusic(){
-let music=document.getElementById("music");
-music.style.display="block";
-}
-
-// Floating Emojis
 const hearts=document.querySelector('.hearts');
 
 function createHeart(){
 
 const heart=document.createElement('div');
+
 heart.classList.add('heart');
 
-const emojis=['💖','✨','🧸','💕','🎀'];
+const emojis=['💖','✨','🧸','💕','🎀','🌸'];
 
 heart.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
 
 heart.style.left=Math.random()*100+'vw';
+
 heart.style.fontSize=(Math.random()*30+20)+'px';
+
 heart.style.animationDuration=(Math.random()*5+5)+'s';
 
 hearts.appendChild(heart);
@@ -309,9 +285,16 @@ hearts.appendChild(heart);
 setTimeout(()=>{
 heart.remove();
 },10000);
+
 }
 
 setInterval(createHeart,300);
+
+/* Auto Music Play Fix */
+
+window.addEventListener('click', () => {
+document.getElementById('bgMusic').play();
+}, { once:true });
 
 </script>
 
