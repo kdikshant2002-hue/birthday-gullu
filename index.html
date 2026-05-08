@@ -1,8 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Gullu ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,173 +18,91 @@
 }
 
 body{
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
   overflow:hidden;
-  background:#0a0a0a;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* ANIMATED BACKGROUND */
+/* FLOATING HEARTS */
 
-.bg{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  background:
-  radial-gradient(circle at top,#ff4d6d22,#000);
-}
-
-.float{
+.heart{
   position:absolute;
-  bottom:-100px;
-  animation:floatUp linear infinite;
-  opacity:.9;
+  font-size:24px;
+  animation:float 6s linear infinite;
+  opacity:.8;
 }
 
-@keyframes floatUp{
+@keyframes float{
 
   0%{
-    transform:translateY(0) scale(.7);
+    transform:translateY(100vh);
     opacity:0;
   }
 
-  20%{
+  30%{
     opacity:1;
   }
 
   100%{
-    transform:translateY(-120vh) scale(1.3);
+    transform:translateY(-10vh);
     opacity:0;
   }
 
-}
-
-/* INTRO */
-
-.intro{
-  position:fixed;
-  inset:0;
-  background:black;
-  z-index:999;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  transition:1.2s;
-}
-
-.intro.hide{
-  opacity:0;
-  visibility:hidden;
-}
-
-.intro h1{
-  color:#ff4d6d;
-  font-size:42px;
-}
-
-.intro p{
-  color:#ddd;
-  margin-top:10px;
-  font-size:14px;
-}
-
-.tap{
-  margin-top:35px;
-  background:#ff4d6d;
-  color:white;
-  padding:15px 34px;
-  border-radius:50px;
-  font-size:15px;
-  font-weight:600;
-  animation:pulse 1.5s infinite;
-  box-shadow:0 10px 30px rgba(255,77,109,.4);
-}
-
-@keyframes pulse{
-
-  0%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.08);
-  }
-
-  100%{
-    transform:scale(1);
-  }
-
-}
-
-/* COUNTER */
-
-.counter{
-  position:fixed;
-  top:18px;
-  right:18px;
-  z-index:100;
-  color:white;
-  opacity:.7;
-  font-size:14px;
-}
-
-/* SLIDER */
-
-.slider{
-  width:100vw;
-  height:100vh;
-  position:relative;
-}
-
-.slide{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  transform:scale(1.1);
-  transition:1s;
-}
-
-.slide.active{
-  opacity:1;
-  transform:scale(1);
-  z-index:5;
 }
 
 /* CARD */
 
 .card{
-  width:88%;
-  min-height:60%;
-  padding:28px 24px;
-  border-radius:35px;
-  background:rgba(255,255,255,.08);
+  width:90%;
+  max-width:370px;
+  background:rgba(255,255,255,.18);
   backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 0 40px rgba(255,77,109,.15);
+  border-radius:35px;
+  padding:32px 25px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,.2);
+  z-index:2;
   color:white;
-  position:relative;
-  overflow:hidden;
   animation:fadeUp 1s ease;
 }
 
-.card::before{
-  content:'';
-  position:absolute;
-  width:220px;
-  height:220px;
-  background:#ff4d6d22;
-  border-radius:50%;
-  top:-80px;
-  right:-80px;
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
-/* EMOJI */
+h1{
+  font-size:36px;
+  margin-bottom:18px;
+}
+
+p{
+  font-size:16px;
+  line-height:1.9;
+}
+
+.tag{
+  color:#fff;
+  letter-spacing:3px;
+  font-size:12px;
+  margin-bottom:15px;
+}
 
 .emoji{
   font-size:34px;
-  margin-bottom:16px;
+  margin-bottom:15px;
   animation:bounce 2s infinite;
 }
 
@@ -199,85 +118,34 @@ body{
 
 }
 
-/* TEXT */
-
-.tag{
-  color:#ff6b81;
-  font-size:12px;
-  letter-spacing:3px;
-  margin-bottom:14px;
-}
-
-h1{
-  font-size:38px;
-  line-height:1.15;
-  margin-bottom:16px;
-}
-
-p{
-  font-size:15px;
-  line-height:1.9;
-  color:#ececec;
-}
-
 /* BUTTON */
 
-.next{
-  position:fixed;
-  bottom:32px;
-  left:50%;
-  transform:translateX(-50%);
+button{
+  margin-top:24px;
   background:#ff4d6d;
-  color:white;
   border:none;
   padding:15px 34px;
   border-radius:50px;
+  color:white;
   font-size:15px;
   font-weight:600;
-  z-index:100;
-  box-shadow:0 10px 30px rgba(255,77,109,.4);
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(255,77,109,.4);
 }
 
-.next:active{
-  transform:translateX(-50%) scale(.95);
+button:active{
+  transform:scale(.95);
 }
 
-/* FINAL */
-
-.final h1{
-  color:#ff6b81;
-  font-size:30px;
-}
-
-.final p{
-  font-size:14px;
-  line-height:2;
-}
-
-/* ANIMATION */
-
-@keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
+.hidden{
+  display:none;
 }
 
 .credit{
-  position:fixed;
-  bottom:6px;
-  width:100%;
-  text-align:center;
-  color:#ffffff55;
-  font-size:10px;
-  z-index:100;
+  position:absolute;
+  bottom:10px;
+  color:#ffffff90;
+  font-size:11px;
 }
 
 </style>
@@ -285,93 +153,61 @@ p{
 
 <body>
 
-<!-- BACKGROUND -->
+<!-- SONG -->
 
-<div class="bg">
+<iframe id="song" width="0" height="0"
+src="https://www.youtube.com/embed/0_D1Qsg2CK0?enablejsapi=1&start=13&autoplay=0&loop=1&playlist=0_D1Qsg2CK0"
+frameborder="0"
+allow="autoplay">
+</iframe>
 
-<div class="float" style="left:5%;font-size:26px;animation-duration:10s;">❤️</div>
-<div class="float" style="left:18%;font-size:38px;animation-duration:14s;">🧸</div>
-<div class="float" style="left:30%;font-size:24px;animation-duration:12s;">💖</div>
-<div class="float" style="left:42%;font-size:34px;animation-duration:15s;">💕</div>
-<div class="float" style="left:58%;font-size:28px;animation-duration:11s;">🫶</div>
-<div class="float" style="left:72%;font-size:40px;animation-duration:16s;">🧸</div>
-<div class="float" style="left:85%;font-size:28px;animation-duration:13s;">💘</div>
-
-</div>
-
-<!-- INTRO -->
-
-<div class="intro" id="intro">
-
-<h1>For Gullu ❤️</h1>
-
-<p>A Cute Little Story ✨</p>
-
-<div class="tap">
-Tap To Open 🎬
-</div>
-
-</div>
-
-<!-- COUNTER -->
-
-<div class="counter" id="counter">
-1 / 9
-</div>
-
-<!-- SLIDER -->
-
-<div class="slider">
-
-<!-- 1 -->
-
-<div class="slide active">
+<!-- CARD -->
 
 <div class="card">
+
+<!-- SLIDE 0 -->
+
+<div id="slide0">
 
 <div class="emoji">🧸💖</div>
 
-<div class="tag">SPECIAL STORY</div>
+<div class="tag">FOR GULLU ❤️</div>
 
-<h1>Happy Birthday Gullu ❤️</h1>
+<h1>Happy Birthday ✨</h1>
 
 <p>
-Some people become home without even trying… and for me, that's you ✨
+I made something very special… just for you 💕
 </p>
 
-</div>
+<button onclick="start()">
+Tap Slowly 💖
+</button>
 
 </div>
 
-<!-- 2 -->
+<!-- SLIDE 1 -->
 
-<div class="slide">
+<div id="slide1" class="hidden">
 
-<div class="card">
+<div class="emoji">🌸🫶</div>
 
-<div class="emoji">🌙💗</div>
-
-<div class="tag">CHAPTER 02</div>
-
-<h1>My Peace 🌸</h1>
+<h1>My Peace 🌙</h1>
 
 <p>
 Teri awaaz, teri baatein aur tera hona hi mere liye sukoon hai 🤍
 </p>
 
-</div>
+<button onclick="next(1)">
+Next 💞
+</button>
 
 </div>
 
-<!-- 3 -->
+<!-- SLIDE 2 -->
 
-<div class="slide">
-
-<div class="card">
+<div id="slide2" class="hidden">
 
 <div class="emoji">🎀✨</div>
-
-<div class="tag">CHAPTER 03</div>
 
 <h1>Golden Memories 💫</h1>
 
@@ -379,19 +215,17 @@ Teri awaaz, teri baatein aur tera hona hi mere liye sukoon hai 🤍
 Har memory tere saath movie scene jaisi lagti hai 🎬
 </p>
 
-</div>
+<button onclick="next(2)">
+Next ❤️
+</button>
 
 </div>
 
-<!-- 4 -->
+<!-- SLIDE 3 -->
 
-<div class="slide">
+<div id="slide3" class="hidden">
 
-<div class="card">
-
-<div class="emoji">🫶💖</div>
-
-<div class="tag">CHAPTER 04</div>
+<div class="emoji">🧸💕</div>
 
 <h1>Safe Place 🤍</h1>
 
@@ -399,99 +233,53 @@ Har memory tere saath movie scene jaisi lagti hai 🎬
 Tu woh insaan hai jiske saamne main bina fake smile ke reh sakta hu 🥺
 </p>
 
-</div>
+<button onclick="next(3)">
+Next 🌸
+</button>
 
 </div>
 
-<!-- 5 -->
+<!-- SLIDE 4 -->
 
-<div class="slide">
+<div id="slide4" class="hidden">
 
-<div class="card">
-
-<div class="emoji">🐻💕</div>
-
-<div class="tag">CHAPTER 05</div>
+<div class="emoji">💖✨</div>
 
 <h1>Forever Bond ❤️</h1>
 
 <p>
-Kuch rishton ko naam ki zarurat nahi hoti ✨
+Kuch rishton ko explanation ki zarurat nahi hoti 💫
 </p>
 
-</div>
+<button onclick="next(4)">
+Next 💗
+</button>
 
 </div>
 
-<!-- 6 -->
+<!-- SLIDE 5 -->
 
-<div class="slide">
+<div id="slide5" class="hidden">
 
-<div class="card">
+<div class="emoji">😊🌸</div>
 
-<div class="emoji">🌸💗</div>
-
-<div class="tag">CHAPTER 06</div>
-
-<h1>Her Smile 😊</h1>
+<h1>Her Smile 💖</h1>
 
 <p>
-Teri smile literally duniya ki cutest cheez hai 💖
+Teri smile literally duniya ki cutest cheez hai 🫶
 </p>
 
-</div>
+<button onclick="next(5)">
+Next 🧸
+</button>
 
 </div>
 
-<!-- 7 -->
+<!-- SLIDE 6 -->
 
-<div class="slide">
-
-<div class="card">
-
-<div class="emoji">🧸✨</div>
-
-<div class="tag">CHAPTER 07</div>
-
-<h1>Always There ❤️</h1>
-
-<p>
-Bas hamesha mere saath rehna 🫂
-</p>
-
-</div>
-
-</div>
-
-<!-- 8 -->
-
-<div class="slide">
-
-<div class="card">
-
-<div class="emoji">🎬💞</div>
-
-<div class="tag">CHAPTER 08</div>
-
-<h1>Cinematic Feel ✨</h1>
-
-<p>
-Agar meri life movie hoti… toh uska best scene tu hoti 💖
-</p>
-
-</div>
-
-</div>
-
-<!-- 9 -->
-
-<div class="slide final">
-
-<div class="card">
+<div id="slide6" class="hidden">
 
 <div class="emoji">🎂❤️🧸</div>
-
-<div class="tag">FINAL MESSAGE</div>
 
 <h1>Happy Birthday Gullu ❤️</h1>
 
@@ -509,11 +297,7 @@ Bohot log aaye aur gaye life mein, but tu hi ek aisi hai jisse main har baat bin
 
 <br><br>
 
-Bas hamesha aise hi rehna mere saath, kyuki meri life ka sabse peaceful aur genuine part tu hi hai.
-
-<br><br>
-
-Teri smile hamesha aise hi rahe aur tujhe life ki har khushi mile, because honestly tu uski haqdar hai. ❤️✨
+Bas hamesha aise hi rehna mere saath ❤️✨
 
 <br><br>
 
@@ -525,67 +309,72 @@ Once again Happy Birthday meri Gullu 🎂💖
 
 </div>
 
-</div>
-
-<!-- BUTTON -->
-
-<button class="next" onclick="nextSlide()">
-Next Slide ➜
-</button>
-
 <div class="credit">
 Made with ❤️ for Gullu
 </div>
 
-<!-- MUSIC -->
-
-<audio id="music" loop>
-<source src="song.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 
-const intro = document.getElementById("intro");
-const slides = document.querySelectorAll(".slide");
-const counter = document.getElementById("counter");
-const music = document.getElementById("music");
+/* START */
 
-let current = 0;
-let started = false;
+function start(){
 
-/* INTRO */
+  document.getElementById("slide0").style.display="none";
 
-intro.addEventListener("click",()=>{
+  document.getElementById("slide1").style.display="block";
 
-intro.classList.add("hide");
+  playMusic();
 
-});
-
-/* NEXT SLIDE */
-
-function nextSlide(){
-
-slides[current].classList.remove("active");
-
-current = (current + 1) % slides.length;
-
-slides[current].classList.add("active");
-
-counter.innerHTML = `${current + 1} / 9`;
-
-/* SONG START FROM 13 SEC ON FIRST NEXT CLICK */
-
-if(!started){
-
-music.currentTime = 13;
-
-music.volume = 0.8;
-
-music.play();
-
-started = true;
+  hearts();
 
 }
+
+/* NEXT */
+
+function next(n){
+
+  document.getElementById("slide"+n).style.display="none";
+
+  document.getElementById("slide"+(n+1)).style.display="block";
+
+}
+
+/* HEARTS */
+
+function hearts(){
+
+  setInterval(()=>{
+
+    const h=document.createElement("div");
+
+    h.className="heart";
+
+    const emojis=["💖","💕","🧸","✨","❤️","🌸"];
+
+    h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+    h.style.left=Math.random()*100+"vw";
+
+    h.style.animationDuration=(4+Math.random()*4)+"s";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),7000);
+
+  },300);
+
+}
+
+/* PLAY MUSIC */
+
+function playMusic(){
+
+  const iframe=document.getElementById("song").contentWindow;
+
+  iframe.postMessage(
+    '{"event":"command","func":"playVideo","args":""}',
+    '*'
+  );
 
 }
 
@@ -593,3 +382,4 @@ started = true;
 
 </body>
 </html>
+```
