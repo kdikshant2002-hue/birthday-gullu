@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,36 +17,64 @@
 }
 
 body{
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
   overflow:hidden;
   height:100vh;
+  background:
+  linear-gradient(135deg,#ffb6c1,#ffd6e0,#ffe8f0);
   display:flex;
   justify-content:center;
   align-items:center;
+  position:relative;
 }
 
-/* FLOATING HEARTS */
+/* GLOW BG */
 
-.heart{
+.blur1,
+.blur2{
   position:absolute;
-  font-size:24px;
-  animation:float 6s linear infinite;
-  opacity:.8;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.5;
 }
 
-@keyframes float{
+.blur1{
+  width:250px;
+  height:250px;
+  background:#ff4d6d;
+  top:-60px;
+  left:-60px;
+}
+
+.blur2{
+  width:280px;
+  height:280px;
+  background:#ff85a2;
+  bottom:-100px;
+  right:-80px;
+}
+
+/* FLOATING EMOJIS */
+
+.float{
+  position:absolute;
+  bottom:-100px;
+  animation:floatUp linear infinite;
+  opacity:.85;
+}
+
+@keyframes floatUp{
 
   0%{
-    transform:translateY(100vh);
+    transform:translateY(0) scale(.8);
     opacity:0;
   }
 
-  30%{
+  20%{
     opacity:1;
   }
 
   100%{
-    transform:translateY(-10vh);
+    transform:translateY(-120vh) scale(1.4);
     opacity:0;
   }
 
@@ -57,16 +84,30 @@ body{
 
 .card{
   width:90%;
-  max-width:370px;
+  max-width:380px;
+  min-height:520px;
   background:rgba(255,255,255,.18);
   backdrop-filter:blur(18px);
-  border-radius:35px;
-  padding:32px 25px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:38px;
+  padding:30px 24px;
   text-align:center;
-  box-shadow:0 15px 35px rgba(0,0,0,.2);
-  z-index:2;
-  color:white;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+  position:relative;
+  overflow:hidden;
+  z-index:5;
   animation:fadeUp 1s ease;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:#ffffff20;
+  top:-100px;
+  right:-90px;
 }
 
 @keyframes fadeUp{
@@ -83,26 +124,36 @@ body{
 
 }
 
-h1{
-  font-size:36px;
-  margin-bottom:18px;
+/* SLIDES */
+
+.slide{
+  display:none;
+  animation:smooth .8s ease;
 }
 
-p{
-  font-size:16px;
-  line-height:1.9;
+.active{
+  display:block;
 }
 
-.tag{
-  color:#fff;
-  letter-spacing:3px;
-  font-size:12px;
-  margin-bottom:15px;
+@keyframes smooth{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
+
+/* EMOJI */
 
 .emoji{
-  font-size:34px;
-  margin-bottom:15px;
+  font-size:38px;
+  margin-bottom:16px;
   animation:bounce 2s infinite;
 }
 
@@ -118,34 +169,86 @@ p{
 
 }
 
+.tag{
+  font-size:11px;
+  letter-spacing:3px;
+  color:#ff4d6d;
+  margin-bottom:14px;
+}
+
+h1{
+  color:#ff4d6d;
+  font-size:36px;
+  margin-bottom:16px;
+  line-height:1.15;
+}
+
+p{
+  font-size:15px;
+  line-height:1.9;
+  color:#444;
+}
+
 /* BUTTON */
 
 button{
-  margin-top:24px;
+  margin-top:28px;
   background:#ff4d6d;
   border:none;
+  color:white;
   padding:15px 34px;
   border-radius:50px;
-  color:white;
   font-size:15px;
   font-weight:600;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(255,77,109,.4);
+  box-shadow:0 10px 30px rgba(255,77,109,.35);
+  transition:.3s;
 }
 
 button:active{
   transform:scale(.95);
 }
 
-.hidden{
-  display:none;
+/* DOTS */
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:24px;
 }
 
-.credit{
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ffffff90;
+}
+
+.dot.active{
+  background:#ff4d6d;
+  transform:scale(1.3);
+}
+
+/* FINAL */
+
+.final h1{
+  font-size:28px;
+}
+
+.final p{
+  font-size:14px;
+  line-height:2;
+}
+
+/* FOOTER */
+
+.footer{
   position:absolute;
   bottom:10px;
-  color:#ffffff90;
+  color:#ffffffaa;
   font-size:11px;
+  z-index:5;
 }
 
 </style>
@@ -161,13 +264,27 @@ frameborder="0"
 allow="autoplay">
 </iframe>
 
+<!-- BG BLUR -->
+
+<div class="blur1"></div>
+<div class="blur2"></div>
+
+<!-- FLOATS -->
+
+<div class="float" style="left:5%;font-size:26px;animation-duration:10s;">💖</div>
+<div class="float" style="left:18%;font-size:40px;animation-duration:15s;">🧸</div>
+<div class="float" style="left:35%;font-size:28px;animation-duration:12s;">✨</div>
+<div class="float" style="left:50%;font-size:30px;animation-duration:16s;">💕</div>
+<div class="float" style="left:70%;font-size:34px;animation-duration:13s;">🌸</div>
+<div class="float" style="left:85%;font-size:26px;animation-duration:11s;">❤️</div>
+
 <!-- CARD -->
 
 <div class="card">
 
-<!-- SLIDE 0 -->
+<!-- 1 -->
 
-<div id="slide0">
+<div class="slide active" id="slide0">
 
 <div class="emoji">🧸💖</div>
 
@@ -179,15 +296,15 @@ allow="autoplay">
 I made something very special… just for you 💕
 </p>
 
-<button onclick="start()">
+<button onclick="nextSlide()">
 Tap Slowly 💖
 </button>
 
 </div>
 
-<!-- SLIDE 1 -->
+<!-- 2 -->
 
-<div id="slide1" class="hidden">
+<div class="slide" id="slide1">
 
 <div class="emoji">🌸🫶</div>
 
@@ -197,15 +314,15 @@ Tap Slowly 💖
 Teri awaaz, teri baatein aur tera hona hi mere liye sukoon hai 🤍
 </p>
 
-<button onclick="next(1)">
+<button onclick="nextSlide()">
 Next 💞
 </button>
 
 </div>
 
-<!-- SLIDE 2 -->
+<!-- 3 -->
 
-<div id="slide2" class="hidden">
+<div class="slide" id="slide2">
 
 <div class="emoji">🎀✨</div>
 
@@ -215,15 +332,15 @@ Next 💞
 Har memory tere saath movie scene jaisi lagti hai 🎬
 </p>
 
-<button onclick="next(2)">
+<button onclick="nextSlide()">
 Next ❤️
 </button>
 
 </div>
 
-<!-- SLIDE 3 -->
+<!-- 4 -->
 
-<div id="slide3" class="hidden">
+<div class="slide" id="slide3">
 
 <div class="emoji">🧸💕</div>
 
@@ -233,15 +350,15 @@ Next ❤️
 Tu woh insaan hai jiske saamne main bina fake smile ke reh sakta hu 🥺
 </p>
 
-<button onclick="next(3)">
+<button onclick="nextSlide()">
 Next 🌸
 </button>
 
 </div>
 
-<!-- SLIDE 4 -->
+<!-- 5 -->
 
-<div id="slide4" class="hidden">
+<div class="slide" id="slide4">
 
 <div class="emoji">💖✨</div>
 
@@ -251,15 +368,15 @@ Next 🌸
 Kuch rishton ko explanation ki zarurat nahi hoti 💫
 </p>
 
-<button onclick="next(4)">
+<button onclick="nextSlide()">
 Next 💗
 </button>
 
 </div>
 
-<!-- SLIDE 5 -->
+<!-- 6 -->
 
-<div id="slide5" class="hidden">
+<div class="slide" id="slide5">
 
 <div class="emoji">😊🌸</div>
 
@@ -269,112 +386,135 @@ Next 💗
 Teri smile literally duniya ki cutest cheez hai 🫶
 </p>
 
-<button onclick="next(5)">
+<button onclick="nextSlide()">
 Next 🧸
 </button>
 
 </div>
 
-<!-- SLIDE 6 -->
+<!-- 7 -->
 
-<div id="slide6" class="hidden">
+<div class="slide final" id="slide6">
 
 <div class="emoji">🎂❤️🧸</div>
 
 <h1>Happy Birthday Gullu ❤️</h1>
 
-<p>
+<p id="typing"></p>
 
-Pata nahi tu mere liye itni special kaise ban gayi, but honestly tu sirf meri best friend nahi hai… tu mere dil ke sabse kareeb insaan hai.
+</div>
 
-<br><br>
+<!-- DOTS -->
 
-Har situation mein tera saath, teri baatein, tera samjhana aur bas tera hona hi kaafi hota hai mere liye.
+<div class="dots">
 
-<br><br>
-
-Bohot log aaye aur gaye life mein, but tu hi ek aisi hai jisse main har baat bina soche share kar sakta hu.
-
-<br><br>
-
-Bas hamesha aise hi rehna mere saath ❤️✨
-
-<br><br>
-
-Once again Happy Birthday meri Gullu 🎂💖
-
-</p>
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
 
 </div>
 
 </div>
 
-<div class="credit">
+<div class="footer">
 Made with ❤️ for Gullu
 </div>
 
 <script>
 
-/* START */
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".dot");
 
-function start(){
-
-  document.getElementById("slide0").style.display="none";
-
-  document.getElementById("slide1").style.display="block";
-
-  playMusic();
-
-  hearts();
-
-}
+let current=0;
+let started=false;
 
 /* NEXT */
 
-function next(n){
+function nextSlide(){
 
-  document.getElementById("slide"+n).style.display="none";
+slides[current].classList.remove("active");
+dots[current].classList.remove("active");
 
-  document.getElementById("slide"+(n+1)).style.display="block";
+current++;
+
+if(current<slides.length){
+
+slides[current].classList.add("active");
+
+if(dots[current]){
+dots[current].classList.add("active");
+}
 
 }
 
-/* HEARTS */
+/* MUSIC */
 
-function hearts(){
+if(!started){
 
-  setInterval(()=>{
+playMusic();
 
-    const h=document.createElement("div");
-
-    h.className="heart";
-
-    const emojis=["💖","💕","🧸","✨","❤️","🌸"];
-
-    h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-
-    h.style.left=Math.random()*100+"vw";
-
-    h.style.animationDuration=(4+Math.random()*4)+"s";
-
-    document.body.appendChild(h);
-
-    setTimeout(()=>h.remove(),7000);
-
-  },300);
+started=true;
 
 }
 
-/* PLAY MUSIC */
+/* FINAL TYPING */
+
+if(current===6){
+
+typeText();
+
+}
+
+}
+
+/* MUSIC */
 
 function playMusic(){
 
-  const iframe=document.getElementById("song").contentWindow;
+const iframe=document.getElementById("song").contentWindow;
 
-  iframe.postMessage(
-    '{"event":"command","func":"playVideo","args":""}',
-    '*'
-  );
+iframe.postMessage(
+'{"event":"command","func":"playVideo","args":""}',
+'*'
+);
+
+}
+
+/* TYPING EFFECT */
+
+const message=`Pata nahi tu mere liye itni special kaise ban gayi, but honestly tu sirf meri best friend nahi hai… tu mere dil ke sabse kareeb insaan hai.
+
+Har situation mein tera saath, teri baatein, tera samjhana aur bas tera hona hi kaafi hota hai mere liye.
+
+Bohot log aaye aur gaye life mein, but tu hi ek aisi hai jisse main har baat bina soche share kar sakta hu.
+
+Bas hamesha aise hi rehna mere saath ❤️✨
+
+Once again Happy Birthday meri Gullu 🎂💖`;
+
+let i=0;
+
+function typeText(){
+
+const typing=document.getElementById("typing");
+
+const interval=setInterval(()=>{
+
+typing.innerHTML+=message.charAt(i);
+
+i++;
+
+if(i>=message.length){
+
+clearInterval(interval);
+
+}
+
+},35);
 
 }
 
@@ -382,4 +522,3 @@ function playMusic(){
 
 </body>
 </html>
-```
