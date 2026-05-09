@@ -17,40 +17,40 @@
 }
 
 body{
-  overflow:hidden;
   height:100vh;
+  overflow:hidden;
   background:
-  linear-gradient(135deg,#ffb6c1,#ffd6e0,#ffe8f0);
+  linear-gradient(135deg,#ffb6c1,#ffd6e0,#ffeef5);
   display:flex;
   justify-content:center;
   align-items:center;
   position:relative;
 }
 
-/* GLOW BG */
+/* BLUR BG */
 
 .blur1,
 .blur2{
   position:absolute;
   border-radius:50%;
-  filter:blur(80px);
+  filter:blur(90px);
   opacity:.5;
 }
 
 .blur1{
-  width:250px;
-  height:250px;
+  width:260px;
+  height:260px;
   background:#ff4d6d;
-  top:-60px;
-  left:-60px;
+  top:-80px;
+  left:-80px;
 }
 
 .blur2{
-  width:280px;
-  height:280px;
+  width:300px;
+  height:300px;
   background:#ff85a2;
-  bottom:-100px;
-  right:-80px;
+  bottom:-120px;
+  right:-100px;
 }
 
 /* FLOATING EMOJIS */
@@ -65,7 +65,7 @@ body{
 @keyframes floatUp{
 
   0%{
-    transform:translateY(0) scale(.8);
+    transform:translateY(0) scale(.7);
     opacity:0;
   }
 
@@ -85,7 +85,7 @@ body{
 .card{
   width:90%;
   max-width:380px;
-  min-height:520px;
+  min-height:540px;
   background:rgba(255,255,255,.18);
   backdrop-filter:blur(18px);
   border:1px solid rgba(255,255,255,.35);
@@ -96,7 +96,6 @@ body{
   position:relative;
   overflow:hidden;
   z-index:5;
-  animation:fadeUp 1s ease;
 }
 
 .card::before{
@@ -110,20 +109,6 @@ body{
   right:-90px;
 }
 
-@keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-}
-
 /* SLIDES */
 
 .slide{
@@ -131,7 +116,7 @@ body{
   animation:smooth .8s ease;
 }
 
-.active{
+.slide.active{
   display:block;
 }
 
@@ -139,7 +124,7 @@ body{
 
   from{
     opacity:0;
-    transform:translateY(20px);
+    transform:translateY(25px);
   }
 
   to{
@@ -147,6 +132,28 @@ body{
     transform:translateY(0);
   }
 
+}
+
+/* TEXT */
+
+.tag{
+  color:#ff4d6d;
+  letter-spacing:3px;
+  font-size:11px;
+  margin-bottom:14px;
+}
+
+h1{
+  color:#ff4d6d;
+  font-size:35px;
+  margin-bottom:16px;
+  line-height:1.15;
+}
+
+p{
+  color:#444;
+  font-size:15px;
+  line-height:1.9;
 }
 
 /* EMOJI */
@@ -169,26 +176,6 @@ body{
 
 }
 
-.tag{
-  font-size:11px;
-  letter-spacing:3px;
-  color:#ff4d6d;
-  margin-bottom:14px;
-}
-
-h1{
-  color:#ff4d6d;
-  font-size:36px;
-  margin-bottom:16px;
-  line-height:1.15;
-}
-
-p{
-  font-size:15px;
-  line-height:1.9;
-  color:#444;
-}
-
 /* BUTTON */
 
 button{
@@ -202,7 +189,6 @@ button{
   font-weight:600;
   cursor:pointer;
   box-shadow:0 10px 30px rgba(255,77,109,.35);
-  transition:.3s;
 }
 
 button:active{
@@ -264,25 +250,23 @@ frameborder="0"
 allow="autoplay">
 </iframe>
 
-<!-- BG BLUR -->
+<!-- BG -->
 
 <div class="blur1"></div>
 <div class="blur2"></div>
 
-<!-- FLOATS -->
-
-<div class="float" style="left:5%;font-size:26px;animation-duration:10s;">💖</div>
-<div class="float" style="left:18%;font-size:40px;animation-duration:15s;">🧸</div>
+<div class="float" style="left:5%;font-size:28px;animation-duration:10s;">💖</div>
+<div class="float" style="left:18%;font-size:42px;animation-duration:15s;">🧸</div>
 <div class="float" style="left:35%;font-size:28px;animation-duration:12s;">✨</div>
-<div class="float" style="left:50%;font-size:30px;animation-duration:16s;">💕</div>
+<div class="float" style="left:50%;font-size:32px;animation-duration:16s;">💕</div>
 <div class="float" style="left:70%;font-size:34px;animation-duration:13s;">🌸</div>
-<div class="float" style="left:85%;font-size:26px;animation-duration:11s;">❤️</div>
+<div class="float" style="left:85%;font-size:28px;animation-duration:11s;">❤️</div>
 
 <!-- CARD -->
 
 <div class="card">
 
-<!-- 1 -->
+<!-- SLIDE 1 -->
 
 <div class="slide active" id="slide0">
 
@@ -296,13 +280,13 @@ allow="autoplay">
 I made something very special… just for you 💕
 </p>
 
-<button onclick="nextSlide()">
+<button onclick="startExperience()">
 Tap Slowly 💖
 </button>
 
 </div>
 
-<!-- 2 -->
+<!-- SLIDE 2 -->
 
 <div class="slide" id="slide1">
 
@@ -320,7 +304,7 @@ Next 💞
 
 </div>
 
-<!-- 3 -->
+<!-- SLIDE 3 -->
 
 <div class="slide" id="slide2">
 
@@ -338,7 +322,7 @@ Next ❤️
 
 </div>
 
-<!-- 4 -->
+<!-- SLIDE 4 -->
 
 <div class="slide" id="slide3">
 
@@ -356,7 +340,7 @@ Next 🌸
 
 </div>
 
-<!-- 5 -->
+<!-- SLIDE 5 -->
 
 <div class="slide" id="slide4">
 
@@ -374,7 +358,7 @@ Next 💗
 
 </div>
 
-<!-- 6 -->
+<!-- SLIDE 6 -->
 
 <div class="slide" id="slide5">
 
@@ -392,7 +376,7 @@ Next 🧸
 
 </div>
 
-<!-- 7 -->
+<!-- FINAL -->
 
 <div class="slide final" id="slide6">
 
@@ -432,12 +416,25 @@ const dots=document.querySelectorAll(".dot");
 let current=0;
 let started=false;
 
+/* START */
+
+function startExperience(){
+
+playMusic();
+
+nextSlide();
+
+}
+
 /* NEXT */
 
 function nextSlide(){
 
 slides[current].classList.remove("active");
+
+if(dots[current]){
 dots[current].classList.remove("active");
+}
 
 current++;
 
@@ -451,18 +448,6 @@ dots[current].classList.add("active");
 
 }
 
-/* MUSIC */
-
-if(!started){
-
-playMusic();
-
-started=true;
-
-}
-
-/* FINAL TYPING */
-
 if(current===6){
 
 typeText();
@@ -471,9 +456,11 @@ typeText();
 
 }
 
-/* MUSIC */
+/* PLAY MUSIC */
 
 function playMusic(){
+
+if(started) return;
 
 const iframe=document.getElementById("song").contentWindow;
 
@@ -482,9 +469,11 @@ iframe.postMessage(
 '*'
 );
 
+started=true;
+
 }
 
-/* TYPING EFFECT */
+/* TYPE EFFECT */
 
 const message=`Pata nahi tu mere liye itni special kaise ban gayi, but honestly tu sirf meri best friend nahi hai… tu mere dil ke sabse kareeb insaan hai.
 
@@ -504,7 +493,7 @@ const typing=document.getElementById("typing");
 
 const interval=setInterval(()=>{
 
-typing.innerHTML+=message.charAt(i);
+typing.innerHTML += message.charAt(i);
 
 i++;
 
