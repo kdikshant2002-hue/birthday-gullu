@@ -10,289 +10,276 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#fff0f5,#ffe4ec,#ffd6e0);
-position:relative;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffd6e0,#ffeef5,#fff8fb);
+  position:relative;
 }
 
-/* BLUR */
+/* BLUR BG */
 
-.blur1,.blur2{
-position:absolute;
-border-radius:50%;
-filter:blur(90px);
-opacity:.45;
+.blur1,
+.blur2{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:.45;
 }
 
 .blur1{
-width:260px;
-height:260px;
-background:#ff4d6d;
-top:-100px;
-left:-100px;
+  width:260px;
+  height:260px;
+  background:#ff4d6d;
+  top:-90px;
+  left:-90px;
 }
 
 .blur2{
-width:300px;
-height:300px;
-background:#ff9eb5;
-bottom:-120px;
-right:-120px;
+  width:300px;
+  height:300px;
+  background:#ff9eb5;
+  bottom:-120px;
+  right:-100px;
 }
 
 /* FLOATING */
 
 .float{
-position:absolute;
-bottom:-100px;
-animation:floatUp linear infinite;
-opacity:.85;
+  position:absolute;
+  bottom:-100px;
+  animation:floatUp linear infinite;
+  opacity:.85;
 }
 
 @keyframes floatUp{
 
-0%{
-transform:translateY(0) scale(.8);
-opacity:0;
-}
+  0%{
+    transform:translateY(0) scale(.8);
+    opacity:0;
+  }
 
-20%{
-opacity:1;
-}
+  20%{
+    opacity:1;
+  }
 
-100%{
-transform:translateY(-120vh) scale(1.4);
-opacity:0;
-}
+  100%{
+    transform:translateY(-120vh) scale(1.4);
+    opacity:0;
+  }
 
 }
 
 /* CARD */
 
 .card{
-width:90%;
-max-width:390px;
-min-height:600px;
-background:rgba(255,255,255,.22);
-backdrop-filter:blur(18px);
-border-radius:42px;
-padding:34px 24px;
-border:1px solid rgba(255,255,255,.4);
-box-shadow:0 15px 40px rgba(0,0,0,.12);
-position:relative;
-overflow:hidden;
-z-index:5;
-animation:zoomIn 1s ease;
-text-align:center;
-}
-
-@keyframes zoomIn{
-
-from{
-opacity:0;
-transform:scale(.85);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-
+  width:90%;
+  max-width:390px;
+  min-height:570px;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(18px);
+  border-radius:40px;
+  border:1px solid rgba(255,255,255,.35);
+  padding:32px 24px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  z-index:5;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
 
 .card::before{
-content:'';
-position:absolute;
-width:240px;
-height:240px;
-background:#ffffff30;
-border-radius:50%;
-top:-120px;
-right:-100px;
+  content:'';
+  position:absolute;
+  width:240px;
+  height:240px;
+  background:#ffffff25;
+  border-radius:50%;
+  top:-120px;
+  right:-100px;
 }
 
 /* SLIDES */
 
 .slide{
-display:none;
-animation:fade .8s ease;
+  display:none;
+  animation:fade .8s ease;
 }
 
 .slide.active{
-display:block;
+  display:block;
 }
 
 @keyframes fade{
 
-from{
-opacity:0;
-transform:translateY(20px);
-}
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
 
-to{
-opacity:1;
-transform:translateY(0);
-}
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 
-}
-
-/* POV */
-
-.pov{
-font-size:13px;
-color:#ff4d6d;
-letter-spacing:2px;
-margin-bottom:18px;
-font-weight:600;
 }
 
 /* TEXT */
 
+.tag{
+  color:#ff4d6d;
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:15px;
+}
+
 h1{
-font-size:36px;
-line-height:1.15;
-color:#ff4d6d;
-margin-bottom:16px;
+  color:#ff4d6d;
+  font-size:34px;
+  line-height:1.15;
+  margin-bottom:18px;
 }
 
 p{
-font-size:15px;
-line-height:1.9;
-color:#444;
+  color:#444;
+  font-size:15px;
+  line-height:1.9;
 }
 
+/* EMOJI */
+
 .emoji{
-font-size:44px;
-margin-bottom:16px;
-animation:bounce 2s infinite;
+  font-size:42px;
+  margin-bottom:16px;
+  animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
 
-0%,100%{
-transform:translateY(0);
-}
+  0%,100%{
+    transform:translateY(0);
+  }
 
-50%{
-transform:translateY(-8px);
-}
+  50%{
+    transform:translateY(-8px);
+  }
 
 }
 
 /* BUTTON */
 
 button{
-margin-top:28px;
-background:#ff4d6d;
-border:none;
-padding:15px 34px;
-border-radius:50px;
-color:white;
-font-size:15px;
-font-weight:600;
-box-shadow:0 10px 30px rgba(255,77,109,.35);
+  margin-top:28px;
+  background:#ff4d6d;
+  border:none;
+  color:white;
+  padding:15px 34px;
+  border-radius:50px;
+  font-size:15px;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(255,77,109,.35);
 }
 
 button:active{
-transform:scale(.95);
+  transform:scale(.95);
 }
 
-/* COUNTDOWN */
+/* 5 SEC COUNTDOWN */
 
 .countdown{
-margin-top:30px;
-display:flex;
-justify-content:center;
+  display:flex;
+  justify-content:center;
+  margin-top:25px;
 }
 
 .time{
-width:95px;
-height:95px;
-border-radius:30px;
-background:white;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+  width:90px;
+  height:90px;
+  border-radius:28px;
+  background:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .time h2{
-font-size:34px;
-color:#ff4d6d;
+  color:#ff4d6d;
+  font-size:30px;
 }
 
 .time span{
-font-size:12px;
-color:#666;
+  font-size:12px;
+  color:#666;
 }
 
-/* LETS CELEBRATE */
-
-#celebrate{
-display:none;
-margin-top:28px;
-font-size:30px;
-color:#ff4d6d;
-animation:pop 1s ease;
+#celebrateText{
+  margin-top:25px;
+  color:#ff4d6d;
+  font-size:30px;
+  display:none;
+  animation:pop 1s ease;
 }
 
 @keyframes pop{
 
-from{
-opacity:0;
-transform:scale(.5);
-}
+  from{
+    transform:scale(.5);
+    opacity:0;
+  }
 
-to{
-opacity:1;
-transform:scale(1);
-}
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
 
 }
 
 /* OPTIONS */
 
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:20px;
+}
+
 .option{
-background:white;
-padding:14px;
-border-radius:18px;
-margin-top:12px;
-font-weight:600;
-color:#ff4d6d;
+  background:white;
+  color:#ff4d6d;
+  padding:14px;
+  border-radius:18px;
+  font-weight:600;
 }
 
 /* FINAL IMAGE */
 
 .final-img{
-width:160px;
-height:160px;
-object-fit:cover;
-border-radius:30px;
-margin-top:24px;
-border:4px solid white;
-box-shadow:0 10px 30px rgba(255,77,109,.35);
-animation:pop 1s ease;
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:28px;
+  margin-top:24px;
+  border:4px solid white;
+  box-shadow:0 10px 30px rgba(255,77,109,.35);
+  animation:pop 1s ease;
 }
 
-/* FOOTER */
-
 .footer{
-position:absolute;
-bottom:10px;
-color:#ffffffaa;
-font-size:11px;
+  position:absolute;
+  bottom:10px;
+  color:#ffffffaa;
+  font-size:11px;
 }
 
 </style>
@@ -303,7 +290,7 @@ font-size:11px;
 <!-- AUDIO -->
 
 <audio id="music">
-<source src="song.mp3" type="audio/mpeg">
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <!-- BLUR -->
@@ -323,23 +310,25 @@ font-size:11px;
 
 <div class="card">
 
-<!-- INTRO -->
+<!-- SLIDE 1 -->
 
 <div class="slide active" id="slide0">
 
-<div class="pov">
-POV : It's Gullu's Birthday 🎂
+<div class="emoji">🎂💖</div>
+
+<div class="tag">
+SPECIAL SURPRISE
 </div>
 
-<div class="emoji">🎀💖</div>
-
 <h1>
-A Special Surprise ✨
+Birthday Of Gullu ❤️
 </h1>
 
 <p>
-Something beautiful is waiting for you ❤️
+A very special surprise is waiting for you ✨
 </p>
+
+<!-- 5 SEC -->
 
 <div class="countdown">
 
@@ -350,11 +339,11 @@ Something beautiful is waiting for you ❤️
 
 </div>
 
-<h2 id="celebrate">
+<h2 id="celebrateText">
 🎉 Let's Celebrate 🎂
 </h2>
 
-<button id="openBtn" onclick="startExperience()" style="display:none;">
+<button onclick="startExperience()">
 Open Surprise 🎬
 </button>
 
@@ -378,7 +367,7 @@ Next 💖
 
 </div>
 
-<!-- GAME -->
+<!-- SLIDE 3 -->
 
 <div class="slide" id="slide2">
 
@@ -390,6 +379,8 @@ Next 💖
 Who is the cutest person in this world? 🥺
 </p>
 
+<div class="options">
+
 <div class="option" onclick="correctAnswer()">
 Gullu 💖
 </div>
@@ -400,7 +391,9 @@ Someone Else 😶
 
 </div>
 
-<!-- CORRECT -->
+</div>
+
+<!-- SLIDE 4 -->
 
 <div class="slide" id="slide3">
 
@@ -418,7 +411,7 @@ Continue 🌸
 
 </div>
 
-<!-- SECRET -->
+<!-- SLIDE 5 -->
 
 <div class="slide" id="slide4">
 
@@ -436,7 +429,7 @@ Unlock 💞
 
 </div>
 
-<!-- UNLOCK -->
+<!-- SLIDE 6 -->
 
 <div class="slide" id="slide5">
 
@@ -611,17 +604,11 @@ clearInterval(interval);
 
 }
 
-/* COUNTDOWN */
+/* 5 SEC COUNTDOWN */
 
 let seconds = 5;
 
-const celebrate = document.getElementById("celebrate");
-
-const countdown = document.querySelector(".countdown");
-
-const openBtn = document.getElementById("openBtn");
-
-const timer = setInterval(()=>{
+const countdown = setInterval(()=>{
 
 document.getElementById("seconds").innerHTML = seconds;
 
@@ -629,17 +616,11 @@ seconds--;
 
 if(seconds < 0){
 
-clearInterval(timer);
+clearInterval(countdown);
 
-countdown.style.display="none";
+document.querySelector(".countdown").style.display="none";
 
-celebrate.style.display="block";
-
-setTimeout(()=>{
-
-openBtn.style.display="inline-block";
-
-},2000);
+document.getElementById("celebrateText").style.display="block";
 
 }
 
